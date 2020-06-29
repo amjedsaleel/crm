@@ -24,11 +24,7 @@ def redisterPage(request):
             user = form.save()
             username = form.cleaned_data.get('username')
 
-            group = Group.objects.get(name='customer')
-            user.groups.add(group)
-            Customer.objects.create(
-                user=user,
-            )
+
 
             messages.success(request, 'Registration was completed for ' + username)
             return redirect('login')
